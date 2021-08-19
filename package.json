@@ -1,7 +1,7 @@
 {
   "name": "curso",
   "version": "1.0.0",
-  "description": "",
+  "description": "Proyecto del curso de NodeJS 2021",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,6 +12,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mariadb": "^2.5.4"
   }
 }
