@@ -5,6 +5,7 @@ const {
   usuariosPut,
   usuariosDelete,
   usuarioSignin,
+  usuariosDelete2,
 } = require("../controlers/usuarios");
 
 const router = Router();
@@ -15,5 +16,6 @@ router.post("/", usuariosPost);
 router.put("/", usuariosPut);
 router.delete("/", usuariosDelete);
 router.post("/signin/", usuarioSignin);
+router.delete("/delete2", usuariosDelete2);
 
 module.exports = router;

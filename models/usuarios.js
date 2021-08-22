@@ -38,6 +38,14 @@ status=0
 WHERE
 email=?
 `,
+deleteusu2:`
+UPDATE
+usuarios
+SET 
+contrasena=444
+WHERE 
+nombre=?
+`,
 getUsuarioByEmail:`
 SELECT
 *
