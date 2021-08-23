@@ -42,7 +42,7 @@ deleteusu2:`
 UPDATE
 usuarios
 SET 
-contrasena=444
+contrasena=?
 WHERE 
 nombre=?
 `,

@@ -4,7 +4,7 @@ const usuariosQueries = require("../models/usuarios");
 const bcryptjs = require("bcryptjs");
 
 const usuariosGet = async  (req = request, res = response) => {
-  let {limite = 5, desde = 0} = req.query;
+  let {limite = 100, desde = 0} = req.query;
 
   desde = parseInt(desde);
   limite = parseInt(limite);
@@ -103,14 +103,18 @@ const usuariosDelete = async (req = request, res = response) => {
 };
 
 const usuariosDelete2 = async (req = request, res = response) => {
-  const { nombre } = req.query;
+  const { nombre, password } = req.query;
 
   let conn;
 
   try{
+    
+    const salt = bcryptjs.genSaltSync ();
+     const passwordHash = bcryptjs.hashSync(password,salt);
+
     conn = await pool.getConnection();
   
-    const usuarios = await conn.query(usuariosQueries.deleteusu2,[nombre]);
+    const usuarios = await conn.query(usuariosQueries.deleteusu2,[ passwordHash, nombre]);
     res.json({usuarios});
   
   } catch (error) {
